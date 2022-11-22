@@ -4,32 +4,41 @@ import com.swaglabs.helpers.PageHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class LoginPage extends PageHelper {
+public class Loginpage extends PageHelper {
+    // private final WebDriver driver;
+    private By userNameEle = By.id("user-name");
+    private By passWordEle = By.id("password");
+    private By logInButtonEle = By.id("login-button");
+    private By successMessageEle = By.xpath("//*[@class='title']");
 
-	private By userNameEle = By.id("user-name");
-	private By loginButtonEle = By.id("login-button");
-	private By passwordEle = By.id("password");
+    public Loginpage(WebDriver driver) {
+        super(driver);
+    }
 
-	public LoginPage(WebDriver driver) {
-		super(driver);
-	}
+    public void usernameInput(String username) {
+        setField(userNameEle, username);
+    }
 
-	public void enterUsername(String username) {
-		setField(userNameEle, username);
-	}
+    public void passwordInput(String password) {
+        setField(passWordEle, password);
+    }
 
-	public void enterPassword(String password) {
-		setField(passwordEle, password);
-	}
+    public void clickOnLogInButton() {
+        click(logInButtonEle);
+    }
 
-	public void clickOnLoginButton() {
-		click(loginButtonEle);
-	}
+    public String getSuccessMessageEle() {
+        return getText(successMessageEle);
+    }
 
-	public void submitLogin(String userName, String password) {
-		setField(userNameEle, userName);
-		setField(passwordEle, password);
-		click(loginButtonEle);
-	}
+    public boolean verifyLogInBtn() {
+        return driver.findElement(logInButtonEle).isDisplayed();
+    }
+
+    public void login(String username, String password) {
+        usernameInput(username);
+        passwordInput(password);
+        clickOnLogInButton();
+    }
 
 }

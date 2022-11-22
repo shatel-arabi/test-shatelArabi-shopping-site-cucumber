@@ -5,40 +5,55 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class CartPage extends PageHelper {
-	private By addedProductEle = By.className("inventory_item_name");
-	private By quantityEle = By.className("cart_quantity_label");
-	private By cartProductQuantityEle = By.className("cart_quantity");
-	private By checkoutButtonEle = By.id("checkout");
-	private By removeButtonEle = By.id("remove-sauce-labs-backpack");
-	private By continueShoppingEle = By.id("continue-shopping");
-	private By removedProductEle = By.xpath("//*[@class='removed_cart_item']");
+    private By verifyCartItemOne = By.xpath("(//*[@class='inventory_item_name'])[1]");
+    private By sauceLabFleeceJacketRemove = By.id("remove-sauce-labs-fleece-jacket");
+    private By cartItemOneQTY = By.xpath("//*[@class='cart_quantity']");
+    private By emptyCartVerify = By.xpath("//*[@class='removed_cart_item']");
+    private By checkoutBtn = By.id("checkout");
+    private By continueShoppingBtn = By.xpath("//*[text()='Continue Shopping']");
 
-	public CartPage(WebDriver driver) {
-		super(driver);
-	}
+    public CartPage(WebDriver driver) {
+        super(driver);
+    }
 
-	public String getAddedProductName() {
-		return getText(addedProductEle);
-	}
+    public String getCartItemOne() {
+        return getText(verifyCartItemOne);
+    }
 
-	public String getQuantityText() {
-		return getText(quantityEle);
-	}
+    public void clickRemoveOnCartPage() {
+        click(sauceLabFleeceJacketRemove);
+    }
 
-	public String getProductAmountText() {
-		return getText(cartProductQuantityEle);
-	}
+    public void clickContinueShoppingBtn() {
+        click(continueShoppingBtn);
+    }
 
-	public void clickOnRemoveButton() {
-		click(removeButtonEle);
-	}
+    public String getRemoveBtn() {
+        return getText(sauceLabFleeceJacketRemove);
+    }
 
-	public void clickOnContinueShopping() {
-		click(continueShoppingEle);
-	}
+    public String getVerifyCartItemOneQTY() {
+        return getText(cartItemOneQTY);
+    }
 
-	public void clickOnCheckoutButton() {
-		click(checkoutButtonEle);
-	}
+    public boolean setVerifyCartItemOneQTY1() {
+
+        return driver.findElement(cartItemOneQTY).isDisplayed();
+    }
+
+    public String verifyEmptyCart() {
+        return getText(emptyCartVerify);
+    }
+
+    public String setContinueShoppingBtn() {
+        return getText(continueShoppingBtn);
+    }
+
+    public String setCheckoutBtn() {
+        return getText(checkoutBtn);
+    }
+    public void clickCheckoutBtn(){
+        click(checkoutBtn);
+    }
 
 }

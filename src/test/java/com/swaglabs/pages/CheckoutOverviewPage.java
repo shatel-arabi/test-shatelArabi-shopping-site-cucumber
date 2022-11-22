@@ -5,35 +5,35 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class CheckoutOverviewPage extends PageHelper {
+    public CheckoutOverviewPage(WebDriver driver) {
+        super(driver);
+    }
 
-	private By productNameEle = By.className("inventory_item_name");
-	private By productPriceEle = By.className("inventory_item_price");
-	private By productQuantityEle = By.className("cart_quantity");
-	private By productTotalCostEle = By.className("summary_total_label");
-	private By finishButtonEle = By.id("finish");
+    private By checkoutItemOne = By.xpath("(//*[@class='inventory_item_name'])[1]");
+    private By paymentInfo = By.xpath("(//*[@class='summary_value_label'])[1]");
+    private By shippingInfo = By.xpath("(//*[@class='summary_value_label'])[2]");
+    private By totalAmount = By.xpath("//*[@class='summary_total_label']");
+    private By finishBtn = By.id("finish");
 
-	public CheckoutOverviewPage(WebDriver driver) {
-		super(driver);
-	}
+    public String getCheckoutItemOne() {
+        return getText(checkoutItemOne);
+    }
 
-	public String getProductName() {
-		return getText(productNameEle);
-	}
+    public String getPaymentInfo() {
+        return getText(paymentInfo);
+    }
 
-	public String getProductPrice() {
-		return getText(productPriceEle);
-	}
+    public String getShippingInfo() {
+        return getText(shippingInfo);
+    }
 
-	public String getProductQuantity() {
-		return getText(productQuantityEle);
-	}
+    public String getTotalAmount() {
+        return getText(totalAmount);
+    }
 
-	public String getTotalCost() {
-		return getText(productTotalCostEle);
-	}
+    public void clickFinishBtn() {
+        click(finishBtn);
+    }
 
-	public void clickOnFinishButton() {
-		click(finishButtonEle);
-	}
 
 }
