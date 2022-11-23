@@ -4,11 +4,14 @@ import com.swaglabs.helpers.TestHelper;
 import com.swaglabs.pages.CartPage;
 import com.swaglabs.pages.Loginpage;
 import com.swaglabs.pages.ProductsPage;
-import org.junit.Before;
-import org.junit.Test;
+import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
 
 public class ProductPageTest extends TestHelper {
-    @Before
+    @BeforeTest
     public void loginFirst() {
         Loginpage loginpage = new Loginpage(driver);
         loginpage.login("standard_user", "secret_sauce");

@@ -2,11 +2,11 @@ package com.swaglabs.test.ShoppingCart;
 
 import com.swaglabs.helpers.TestHelper;
 import com.swaglabs.pages.*;
-import org.junit.Before;
-import org.junit.Test;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 
 public class CheckoutCustomerInfoTest extends TestHelper {
-    @Before
+    @BeforeTest
     public void loginFirst() {
         Loginpage loginpage = new Loginpage(driver);
         loginpage.login("standard_user", "secret_sauce");

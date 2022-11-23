@@ -4,11 +4,13 @@ import com.swaglabs.helpers.TestHelper;
 import com.swaglabs.pages.CartPage;
 import com.swaglabs.pages.Loginpage;
 import com.swaglabs.pages.ProductsPage;
-import org.junit.Before;
-import org.junit.Test;
+import org.testng.Assert;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
 
 public class CartPageBtnTest extends TestHelper {
-    @Before
+    @BeforeTest
     public void loginFirst() {
         Loginpage loginpage = new Loginpage(driver);
         loginpage.login("standard_user", "secret_sauce");
@@ -23,7 +25,7 @@ public class CartPageBtnTest extends TestHelper {
         productsPage.fleeceJktaddToCart();
         productsPage.clickCartIcon();
         cartPage.clickRemoveOnCartPage();
-        verifyEquals("Item is not removed: ", expectedItemQTY, cartPage.verifyEmptyCart());
+        Assert.assertEquals("Item is not removed: ", expectedItemQTY, cartPage.verifyEmptyCart());
     }
 
     @Test
