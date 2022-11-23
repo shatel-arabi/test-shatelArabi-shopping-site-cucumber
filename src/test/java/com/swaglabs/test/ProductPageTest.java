@@ -6,12 +6,13 @@ import com.swaglabs.pages.Loginpage;
 import com.swaglabs.pages.ProductsPage;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 
 public class ProductPageTest extends TestHelper {
-    @BeforeTest
+    @BeforeMethod
     public void loginFirst() {
         Loginpage loginpage = new Loginpage(driver);
         loginpage.login("standard_user", "secret_sauce");
@@ -27,7 +28,6 @@ public class ProductPageTest extends TestHelper {
         CartPage cartPage = new CartPage(driver);
         productsPage.fleeceJktaddToCart();
         productsPage.clickCartIcon();
-
 
         verifyEquals("After clicked on add to cart button, not showed remove button", expectedRemoveButton, productsPage.fleeceJktRemove());
         verifyEquals("After clicking add to cart, not show 1 item: ", productsPage.getCartIcon(), expectedCartItemNum);

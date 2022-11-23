@@ -2,16 +2,15 @@ package com.swaglabs.test.ShoppingCart;
 
 import com.swaglabs.helpers.TestHelper;
 import com.swaglabs.pages.*;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class CheckoutCustomerInfoTest extends TestHelper {
-    @BeforeTest
+    @BeforeMethod
     public void loginFirst() {
         Loginpage loginpage = new Loginpage(driver);
         loginpage.login("standard_user", "secret_sauce");
     }
-
     @Test
     public void verifyCheckoutOverviewPage() {
         String expectedProduct = "Sauce Labs Fleece Jacket";
@@ -24,7 +23,6 @@ public class CheckoutCustomerInfoTest extends TestHelper {
         CheckoutInfoPage checkoutInfoPage = new CheckoutInfoPage(driver);
         CheckoutOverviewPage checkoutOverviewPage = new CheckoutOverviewPage(driver);
         CheckoutCompletePage checkoutCompletePage = new CheckoutCompletePage(driver);
-
 
         productsPage.fleeceJktaddToCart();
         productsPage.clickCartIcon();

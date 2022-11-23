@@ -5,12 +5,13 @@ import com.swaglabs.pages.CartPage;
 import com.swaglabs.pages.Loginpage;
 import com.swaglabs.pages.ProductsPage;
 
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 
 public class CartPageTest extends TestHelper {
-    @BeforeTest
+    @BeforeMethod
     public void loginFirst() {
         Loginpage loginpage = new Loginpage(driver);
         loginpage.login("standard_user", "secret_sauce");
