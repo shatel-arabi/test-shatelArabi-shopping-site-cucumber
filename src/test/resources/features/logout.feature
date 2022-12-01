@@ -4,7 +4,7 @@ Feature: logout features
     Given I am on swaglabs login page
 
   Scenario: Logout should be successful
-    Given I log in the page first
-    And I click on burger menu
+  Given I login on the page first
+    Given I click on burger menu
     When I click on logout button
-    Then I see 'LOGIN' page
+   Then I see login button page
