@@ -10,6 +10,7 @@ import org.testng.Assert;
 public class LoginSteps {
     private Loginpage loginpage = new Loginpage(CommonSteps.getDriver());
     private ProductsPage productsPage = new ProductsPage(CommonSteps.getDriver());
+
     @Given("I enter {string} in username field")
     public void i_enter_in_username_field(String username) {
 
@@ -29,7 +30,7 @@ public class LoginSteps {
     @Then("I see {string} page")
     public void i_see_Product_page(String expectedTitle) {
         String actualPageTitle = productsPage.getProductPageTitle();
-        Assert.assertEquals(actualPageTitle,expectedTitle,"page title not matched");
+        Assert.assertEquals(actualPageTitle, expectedTitle, "page title not matched");
     }
 
 

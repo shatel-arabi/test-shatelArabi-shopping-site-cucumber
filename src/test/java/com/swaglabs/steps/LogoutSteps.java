@@ -33,7 +33,7 @@ public class LogoutSteps {
 
     @Then("I see login button page")
     public void i_see_login_button_page() {
-        Assert.assertTrue(  loginpage.verifyLogInBtn(),"After logged-out,Login button not showed");
+        Assert.assertTrue(loginpage.verifyLogInBtn(), "After logged-out,Login button not showed");
 
     }
 
