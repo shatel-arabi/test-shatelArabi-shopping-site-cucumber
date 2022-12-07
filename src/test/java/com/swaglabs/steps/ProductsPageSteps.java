@@ -15,8 +15,6 @@ public class ProductsPageSteps {
 
     @Given("I log in the page first")
     public void I_log_in_the_page_first() {
-//        loginpage.login("standard_user","secret_sauce");
-//        loginpage.clickOnLogInButton();
         loginpage.usernameInput("standard_user");
         loginpage.passwordInput("secret_sauce");
         loginpage.clickOnLogInButton();

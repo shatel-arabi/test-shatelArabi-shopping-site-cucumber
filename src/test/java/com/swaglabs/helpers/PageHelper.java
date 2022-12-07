@@ -42,6 +42,7 @@ public class PageHelper {
 	 * @param locator
 	 */
 	public void click(By locator) {
+		//driver.findElement(locator).click();
 		new WebDriverWait(driver, Duration.ofSeconds(Constants.TIMEOUT_SECONDS_FIVE))
 				.until(ExpectedConditions.elementToBeClickable(locator)).click();
 	}
